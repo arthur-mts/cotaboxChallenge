@@ -1,7 +1,10 @@
 package com.dev.arthur.cotaboxbackend.service;
 
 import com.dev.arthur.cotaboxbackend.dto.ParticipationDTO;
+import com.dev.arthur.cotaboxbackend.dto.ResponseDTO;
 import com.dev.arthur.cotaboxbackend.entity.Participation;
+import com.dev.arthur.cotaboxbackend.exception.ParticipationNotFound;
+import com.dev.arthur.cotaboxbackend.exception.ParticipationOutOfBound;
 import com.dev.arthur.cotaboxbackend.repository.ParticipationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,23 +31,37 @@ public class ParticipationService {
         this.personRepo.deleteAll();
     }
 
-    public void remove(String id) {
+    public void remove(String id) throws ParticipationNotFound {
         if(! this.personRepo.existsById(id)) {
-            throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "Não existe registro de participação com esse ID!");
+            throw new ParticipationNotFound();
         }
 
         this.personRepo.deleteById(id);
     }
 
-    public Participation create(ParticipationDTO personData) {
-        System.out.println(personData);
-        var person = Participation
+    public Participation create(ParticipationDTO participationData) throws ParticipationOutOfBound {
+
+        var allParticipations = this.getAll();
+
+        float percentageSum = 0;
+
+        for(Participation participationItem : allParticipations)
+            percentageSum += participationItem.getParticipation();
+
+
+
+        float excess = percentageSum + participationData.getParticipation() - 100;
+
+        if(excess > 0)
+            throw new ParticipationOutOfBound(excess);
+
+        var participation = Participation
                 .builder()
-                .firstName(personData.getFirstName())
-                .lastName(personData.getLastName())
-                .participation(personData.getParticipation())
+                .firstName(participationData.getFirstName())
+                .lastName(participationData.getLastName())
+                .participation(participationData.getParticipation())
                 .build();
 
-        return this.personRepo.save(person);
+        return this.personRepo.save(participation);
     }
 }
