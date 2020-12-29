@@ -9,8 +9,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 @Builder
 @Getter
-@NoArgsConstructor
-@AllArgsConstructor
 public class Participation {
 
     @Id
@@ -20,7 +18,7 @@ public class Participation {
 
     private String lastName;
 
-    private Float participation;
+    private Float participationPercentage;
 }
 
 
