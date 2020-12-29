@@ -13,12 +13,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.HttpStatusCodeException;
-
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
-import static org.springframework.http.ResponseEntity.ok;
+
 
 @RestController
 @RequestMapping("/api/persons")
@@ -37,7 +36,7 @@ public class ParticipationController {
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity handleException(Exception ex) {
+    public ResponseEntity<ResponseDTO> handleException(Exception ex) {
 
         if(ex instanceof HttpStatusCodeException)
             return
@@ -51,6 +50,7 @@ public class ParticipationController {
                             )
                             .build()
                     );
+
 
         return ResponseEntity
                 .status(HttpStatus.INTERNAL_SERVER_ERROR)
@@ -73,13 +73,13 @@ public class ParticipationController {
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity<ResponseDTO> remove(@PathVariable("id") String id) throws ParticipationNotFound {
+    public ResponseEntity<ResponseDTO<Object>> remove(@PathVariable("id") String id) throws ParticipationNotFound {
             this.participationService.remove(id);
-            return ok().body(ResponseDTO.builder().message("Participação removida com sucesso!").build());
+            return ResponseEntity.ok().body(ResponseDTO.builder().message("Participação removida com sucesso!").build());
     }
 
     @PostMapping
-    public ResponseEntity
+    public ResponseEntity<Object>
         create(@Valid @RequestBody ParticipationDTO participationData,
                BindingResult bindingResult) throws ParticipationOutOfBound {
 
@@ -96,14 +96,14 @@ public class ParticipationController {
 
         var participation= this.participationService.create(participationData);
 
-        return ok()
+        return ResponseEntity.ok()
                 .body(participation);
     }
 
     @GetMapping
     public ResponseEntity<List<Participation>> list(){
         var participations = this.participationService.getAll();
-        return ok().body(participations);
+        return ResponseEntity.ok().body(participations);
     }
 
 }

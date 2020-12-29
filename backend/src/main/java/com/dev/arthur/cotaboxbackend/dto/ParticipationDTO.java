@@ -2,18 +2,17 @@ package com.dev.arthur.cotaboxbackend.dto;
 
 import lombok.*;
 
-import org.springframework.validation.annotation.Validated;
-
-import javax.validation.constraints.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 
 @Getter
-@AllArgsConstructor
-@NoArgsConstructor
+@Setter
 @Builder
 @ToString
 public class ParticipationDTO {
-    private String id;
 
     @NotBlank(message = "O nome é obrigatório!")
     private String firstName;
@@ -24,5 +23,5 @@ public class ParticipationDTO {
     @NotNull(message = "A participação é obrigatória!")
     @Min(value = 0, message = "A porcentagem deve ser maior que zero!")
     @Max(value = 100, message = "A porcentagem não deve ser maior que cem!")
-    private Float participation;
+    private Float participationPercentage;
 }
