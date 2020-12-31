@@ -14,7 +14,7 @@ const ParticipationsTable: React.FC = () => {
     >
       <thead>
         <tr>
-          <th className="border-2  border-gray p-1">Index</th>
+          <th className="border-2  border-gray p-0 md:p-1">Index</th>
           <th className="border-gray border-b-2 p-1">First Name</th>
           <th className="border-gray border-b-2 p-1">Last Name</th>
           <th className="border-2 border-gray p-1">Participation</th>
@@ -22,27 +22,26 @@ const ParticipationsTable: React.FC = () => {
         </tr>
       </thead>
       <tbody className="text-center	">
-        {participations.length > 0 &&
-          participations.map((item, index) => (
-            <tr>
-              <td className="border-2 border-gray p-1">{index}</td>
-              <td className="border-gray border-b-2 p-1">{item.firstName}</td>
-              <td className="border-gray border-b-2 p-1">{item.lastName}</td>
-              <td className="border-2 border-gray p-1">
-                {item.participationPercentage}
-              </td>
-              <td className="border-2 border-gray p-1">
-                <button
-                  type="button"
-                  onClick={async () => {
-                    await deleteParticipation(item.id);
-                  }}
-                >
-                  <DeleteIcon className="w-4 h-4" />
-                </button>
-              </td>
-            </tr>
-          ))}
+        {participations.map((item, index) => (
+          <tr key={item.id}>
+            <td className="border-2 border-gray p-1">{index}</td>
+            <td className="border-gray border-b-2 p-1">{item.firstName}</td>
+            <td className="border-gray border-b-2 p-1">{item.lastName}</td>
+            <td className="border-2 border-gray p-1">
+              {item.participationPercentage}
+            </td>
+            <td className="border-2 border-gray p-1">
+              <button
+                type="button"
+                onClick={async () => {
+                  await deleteParticipation(item.id);
+                }}
+              >
+                <DeleteIcon className="w-4 h-4" />
+              </button>
+            </td>
+          </tr>
+        ))}
       </tbody>
     </table>
   );

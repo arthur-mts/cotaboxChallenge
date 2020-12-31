@@ -9,7 +9,8 @@ module.exports = {
         sans: ['Inter','ui-sans-serif']
       }, 
       screens: {
-        xs: '375px'
+        xs: '375px',
+        '2md': '850px'
       }
     },
     colors: {

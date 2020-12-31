@@ -66,32 +66,35 @@ const App: React.FC = () => {
       <header className="w:screen bg-blue">
         <form
           className="flex-col 
-            md:flex-row flex justify-between items-center 
+            2md:flex-row flex justify-between items-center 
             py-11
             mx-6 xl:mx-48
-            h-96 md:h-full
+            h-96 2md:h-full
           "
           onSubmit={onSubmit}
         >
           <Input
             name="First name"
             value={firstName}
+            required
             onChange={({ target }) => setFirstName(target.value)}
           />
           <Input
             name="Last name"
             value={lastName}
+            required
             onChange={({ target }) => setLastName(target.value)}
           />
           <Input
             name="Participation"
             type="number"
+            required
             value={participation}
             onChange={({ target }) => setParticipation(Number(target.value))}
           />
           <button
             type="submit"
-            className="border-2 border-solid rounded px-14 py-4 font-bold text-white"
+            className="border-2 border-solid rounded px-14 py-4 font-bold text-white bg-blue"
           >
             SEND
           </button>
