@@ -3,6 +3,8 @@ package com.dev.arthur.cotaboxbackend;
 import com.dev.arthur.cotaboxbackend.entity.Participation;
 import com.dev.arthur.cotaboxbackend.repository.ParticipationRepository;
 import static org.assertj.core.api.Assertions.*;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,12 @@ public class MongoDBSpringIntegrationTest {
 
     @Autowired
     private ParticipationRepository participationRepository;
+
+    @BeforeEach
+    public void cleanup(){
+        this.participationRepository.deleteAll();
+    }
+
 
     @Test
     public void databaseShouldBeEmpty() {

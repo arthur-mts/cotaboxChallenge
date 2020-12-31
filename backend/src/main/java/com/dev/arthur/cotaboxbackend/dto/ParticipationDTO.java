@@ -12,6 +12,8 @@ import javax.validation.constraints.NotNull;
 @Setter
 @Builder
 @ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class ParticipationDTO {
 
     @NotBlank(message = "O nome é obrigatório!")

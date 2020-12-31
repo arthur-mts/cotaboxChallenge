@@ -27,7 +27,6 @@ public class ParticipationController {
 
     private Optional<String> getFirstValidationErrorMessage(BindingResult bindingResult){
 
-
         if(bindingResult.hasErrors())
             return Optional.of(bindingResult.getAllErrors().get(0).getDefaultMessage());
 
@@ -52,6 +51,7 @@ public class ParticipationController {
                     );
 
 
+        System.out.println(ex);
         return ResponseEntity
                 .status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body(
