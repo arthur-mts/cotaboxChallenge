@@ -50,7 +50,7 @@ const ParticipationsChart: React.FC = () => {
   }, [participations]);
 
   return (
-    <div className="flex flex-col xs:flex-row">
+    <div className="flex flex-col md:flex-row">
       <RadialChart
         data={parsedPariticpationsToChart}
         width={200}
@@ -60,7 +60,7 @@ const ParticipationsChart: React.FC = () => {
         innerRadius={100}
         radius={50}
       />
-      <ul className="ml-8 flex justify-between flex-col  mt-8 xs:mt-0">
+      <ul className="ml-8 flex justify-between flex-col  mt-8 md:mt-0">
         {parsedPariticpationsToChart.map(
           (item) =>
             item.id !== "blankSpace" && (

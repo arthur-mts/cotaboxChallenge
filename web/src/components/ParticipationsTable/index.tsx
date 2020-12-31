@@ -10,6 +10,7 @@ const ParticipationsTable: React.FC = () => {
       className="border-collapse border-2 border-gray 
       w-full lg:w-2/4
       mb-8 lg:mb-0
+      text-sm md:text-lg
       "
     >
       <thead>

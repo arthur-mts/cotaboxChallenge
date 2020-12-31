@@ -20,7 +20,7 @@ import java.util.Optional;
 
 
 @RestController
-@RequestMapping("/api/persons")
+@RequestMapping("/api/participations")
 public class ParticipationController {
 
     private final ParticipationService participationService;
