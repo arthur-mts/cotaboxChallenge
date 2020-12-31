@@ -5,32 +5,6 @@ import ParticipationChart from "components/ParticipationsChart";
 import { useApi } from "hooks/Api";
 import React, { FormEvent, useCallback, useEffect, useState } from "react";
 
-const data = [
-  {
-    id: "5fea43572817a144c12776ae",
-    firstName: "Arthur",
-    lastName: "Soares",
-    participation: 10.0,
-  },
-  {
-    id: "5fea43572817a144c12776ae",
-    firstName: "Arthur",
-    lastName: "Soares",
-    participation: 10.0,
-  },
-  {
-    id: "5fea43572817a144c12776ae",
-    firstName: "Arthur",
-    lastName: "Soares",
-    participation: 50.0,
-  },
-  {
-    id: "5fea43572817a144c12776ae",
-    firstName: "Arthur",
-    lastName: "Soares",
-    participation: 30.0,
-  },
-];
 
 const App: React.FC = () => {
   const { participations, saveParticipation } = useApi();
