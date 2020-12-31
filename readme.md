@@ -20,7 +20,7 @@ docker-compose --up
 ./mvnw package
 java -jar target/cotabox-backend-0.0.1-SNAPSHOT.jar
 ```
-- Os testes foram feitos com Jest, para executalos é so rodar:
+- Os testes foram feitos com Junit 5.0, para executalos é so rodar:
 ```sh
 ./mvnw test
 ```
