@@ -1,7 +1,9 @@
-import Header from "components/Header";
-import ParticipationsChart from "components/ParticipationsChart";
+import Input from "components/Input";
+
 import ParticipationsTable from "components/ParticipationsTable";
-import React from "react";
+import ParticipationChart from "components/ParticipationsChart";
+import { useApi } from "hooks/Api";
+import React, { FormEvent, useCallback, useEffect, useState } from "react";
 
 const data = [
   {
@@ -31,15 +33,74 @@ const data = [
 ];
 
 const App: React.FC = () => {
+  const { participations, saveParticipation } = useApi();
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [participation, setParticipation] = useState(0);
+
+  const onSubmit = useCallback(
+    async (e: FormEvent) => {
+      e.preventDefault();
+      await saveParticipation({
+        firstName,
+        lastName,
+        participationPercentage: participation,
+      });
+      setFirstName("");
+      setLastName("");
+      setParticipation(0);
+    },
+    [
+      firstName,
+      setFirstName,
+      lastName,
+      setLastName,
+      participation,
+      setParticipation,
+      saveParticipation,
+    ]
+  );
+
   return (
     <div className="flex flex-col">
-      <Header />
+      <header className="w:screen bg-blue">
+        <form
+          className="flex-col 
+            md:flex-row flex justify-between items-center 
+            py-11
+            mx-6 xl:mx-48
+            h-96 md:h-full
+          "
+          onSubmit={onSubmit}
+        >
+          <Input
+            name="First name"
+            value={firstName}
+            onChange={({ target }) => setFirstName(target.value)}
+          />
+          <Input
+            name="Last name"
+            value={lastName}
+            onChange={({ target }) => setLastName(target.value)}
+          />
+          <Input
+            name="Participation"
+            type="number"
+            value={participation}
+            onChange={({ target }) => setParticipation(Number(target.value))}
+          />
+          <button
+            type="submit"
+            className="border-2 border-solid rounded px-14 py-4 font-bold text-white"
+          >
+            SEND
+          </button>
+        </form>
+      </header>
 
       <div className="text-center mx-4 my-8">
         <h2 className="text-3xl font-bold">DATA</h2>
-        <p className="">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        </p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
       </div>
 
       <div
@@ -49,10 +110,12 @@ const App: React.FC = () => {
         mx-8 lg:mx-24 xl:mx-48
         "
       >
-        <ParticipationsTable data={data} />
-        <div>
-          <ParticipationsChart data={data} />
-        </div>
+        {participations.length > 0 && (
+          <>
+            <ParticipationsTable />
+            <ParticipationChart />
+          </>
+        )}
       </div>
     </div>
   );

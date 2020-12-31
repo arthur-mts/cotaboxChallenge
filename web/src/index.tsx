@@ -1,3 +1,4 @@
+import { ApiProvider } from "hooks/Api";
 import App from "pages/App";
 import React from "react";
 import ReactDOM from "react-dom";
@@ -6,7 +7,9 @@ import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ApiProvider>
+      <App />
+    </ApiProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

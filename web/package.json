@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "@craco/craco": "^6.0.0",
+    "@nivo/core": "^0.67.0",
+    "@nivo/pie": "^0.67.0",
     "@tailwindcss/postcss7-compat": "^2.0.2",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -13,7 +15,9 @@
     "@types/react": "^16.9.53",
     "@types/react-dom": "^16.9.8",
     "autoprefixer": "^9",
+    "axios": "^0.21.1",
     "chart.js": "^2.9.4",
+    "nivo": "^0.31.0",
     "postcss": "^7",
     "react": "^17.0.1",
     "react-chartjs-2": "^2.11.1",

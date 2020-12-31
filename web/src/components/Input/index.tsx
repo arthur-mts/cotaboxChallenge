@@ -1,12 +1,23 @@
-import React from "react";
+import React, { InputHTMLAttributes } from "react";
 
 // import { Container } from './styles';
 
-const Input: React.FC = () => {
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+  name: string;
+}
+
+const Input: React.FC<InputProps> = ({
+  name,
+  value,
+  onChange,
+  type = "text",
+}) => {
   return (
     <input
-      type="text"
-      value="Helloe"
+      type={type}
+      value={value}
+      onChange={onChange}
+      placeholder={name}
       className="border border-solid rounded py-4 px-3 w-4/5 md:w-52"
     />
   );
