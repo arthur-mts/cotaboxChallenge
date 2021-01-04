@@ -1,28 +1,50 @@
 # Projeto COTABOX
 
 [![Screenshot 1](https://raw.githubusercontent.com/arthur-mts/challengeCotavox/master/screenshots/1.png "Screenshot 1")]( https://raw.githubusercontent.com/arthur-mts/challengeCotavox/master/screenshots/1.png "Screenshot XFCE")
+## :clipboard: Descrição
+Esse projeto foi feito no processo seletivo da empresa Cotabox.  
+Aproveitei a nova aplicação para aprender o framework JavaSpring Boot e a biblioteca de CSS Tailwind.
 
-## Frontend
-- O frontend do projeto está dentro da pasta web.
-- Nesse projeto foram usados: ReactJS, Tailwind, ReactVis e Axios.
-- Para rodar o frontend, basta entrar na pasta web e executar os comandos:
+## 🧐 O que tem dentro?
 
-```sh
-yarn
-yarn start
-```
+### API
 
-## Backend
-- O backend do projeto está dentro da pasta backend.
-- Nesse projeto foram usados: DockerCompose(Para subir o banco de dados),MongoDB, Java Spring Boot, Lombook e Jackson.
-- Para rodar o backend você precisa rodar os comandos dentro da pasta backend:
+- [JavaSpring Boot](https://spring.io/projects/spring-boot)
+- [MongoDB](https://github.com/mongodb/mongo)
+- [Docker](https://docs.docker.com/compose/install/)
+- [Junit](https://junit.org/junit5/)
+
+### Frontend
+- [ReactJS](https://pt-br.reactjs.org/)
+- [Typescript](https://www.typescriptlang.org)
+- [Axios](https://www.npmjs.com/package/axios)
+- [TailwindCSS](https://tailwindcss.com/)
+
+
+### Ferramentas de Linter
+- [Eslint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
+
+## :sparkles: Como executar?
+
+#### API
+- Instancie o banco de dados no Docker
+- Instale as dependências e compile o projeto (ou execute o .jar disponível)
 ```sh
 docker-compose --up
 ./mvnw install
 ./mvnw package
 java -jar target/cotabox-backend-0.0.1-SNAPSHOT.jar
 ```
-- Os testes foram feitos com Jest, para executalos é so rodar:
+- Para testar use o comando a seguir:
 ```sh
 ./mvnw test
+```
+
+#### Frontend
+- Instale as dependências com o Yarn (ou npm)
+- Execute o projeto
+```sh
+yarn
+yarn start
 ```
