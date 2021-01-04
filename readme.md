@@ -1,5 +1,7 @@
 # Projeto COTABOX
 
+[![Screenshot 1](https://raw.githubusercontent.com/arthur-mts/challengeCotavox/master/screenshots/1.png "Screenshot 1")]( https://raw.githubusercontent.com/arthur-mts/challengeCotavox/master/screenshots/1.png "Screenshot XFCE")
+
 ## Frontend
 - O frontend do projeto está dentro da pasta web.
 - Nesse projeto foram usados: ReactJS, Tailwind, ReactVis e Axios.
