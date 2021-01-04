@@ -1,6 +1,6 @@
 # Projeto COTABOX
 
-[![Screenshot 1](https://raw.githubusercontent.com/arthur-mts/challengeCotavox/master/screenshots/1.png "Screenshot 1")]( https://raw.githubusercontent.com/arthur-mts/challengeCotavox/master/screenshots/1.png "Screenshot XFCE")
+[![Screenshot 1](https://raw.githubusercontent.com/arthur-mts/challengeCotabox/master/screenshots/1.png "Screenshot 1")]( https://raw.githubusercontent.com/arthur-mts/challengeCotabox/master/screenshots/1.png "Screenshot 1")
 ## :clipboard: Descrição
 Esse projeto foi feito no processo seletivo da empresa Cotabox.  
 Aproveitei a nova aplicação para aprender o framework JavaSpring Boot e a biblioteca de CSS Tailwind.
