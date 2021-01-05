@@ -1,4 +1,4 @@
-# Projeto COTABOX
+# Playing with graphs in React 🥳
 
 <div style="display: flex; flex-direction: column; align-items: center;">
 <img alt="Screenshot 1"src="https://raw.githubusercontent.com/arthur-mts/cotaboxChallenge/master/screenshots/1.png" alt="Screenshot 2" style="margin-bottom: 20px;" />
